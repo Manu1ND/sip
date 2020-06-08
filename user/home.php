@@ -51,7 +51,7 @@ include("session.php");
 			<div class="col-sm">
 				<div class="wrap-home100" >
 					<div class="login100-form-title" >
-						<label class="login100-form-title-1">Welcome User!</label>
+						<label class="login100-form-title-1">Welcome <?=$_SESSION['name']?>!</label>
 					</div>
 					<div class="col-sm">
 						<label style="height:500px; text-align:center">Video Here</label>

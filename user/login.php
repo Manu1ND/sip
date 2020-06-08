@@ -20,6 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	$row = mysqli_fetch_array($result);
 	if ($row['regno'] == $regno && $row['DOB'] == $dob){
 		$_SESSION['login_user'] = $regno;
+		$_SESSION['name'] = $row['Fname'];
 		header("location:home.php");
 
 	}  else{

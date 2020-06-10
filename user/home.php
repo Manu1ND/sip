@@ -40,6 +40,14 @@ include("session.php");
 						</button>
 					</div>
 					</br>
+					<div class="row-sm-6">
+						<a href = "timetable.php">
+							<button class="login200-form-btn" name="timeTable">
+							Time Table
+							</button>
+						</a>
+					</div>
+					</br>
 					<div class="row-sm-6">	
 						<a href = "logout.php">
 							<button class="login200-form-btn" name="logout" href = "logout.php">

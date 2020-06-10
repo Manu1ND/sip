@@ -35,14 +35,16 @@ include("session.php");
 					</div>
 					</br>
 					<div class="row-sm-6">
-						<button class="login200-form-btn" name="Feedback">
+						<a href = "timetable.php">
+							<button class="login200-form-btn" name="timeTable">
 							Time Table
-						</button>
+							</button>
+						</a>
 					</div>
 					</br>
 					<div class="row-sm-6">	
 						<a href = "logout.php">
-							<button class="login200-form-btn" name="logout" href = "logout.php">
+							<button class="login200-form-btn" name="logout">
 							Sign Out
 							</button>
 						</a>

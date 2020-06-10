@@ -9,7 +9,7 @@ include("session.php");
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!--===============================================================================================-->	
-<link rel="icon" type="image/png" href="../assests/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="../assests/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../assests/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -35,9 +35,10 @@ include("session.php");
 					</div>
 					</br>
 					<div class="row-sm-6">
-						<button class="login200-form-btn" name="Feedback">
-							Feedback
-						</button>
+						<a href = "feedback.php">
+							<button class="login200-form-btn" name="Feedback">
+								Feedback
+							</button>
 					</div>
 					</br>
 					<div class="row-sm-6">

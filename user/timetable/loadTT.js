@@ -2,7 +2,7 @@ var date = document.getElementById("date");
 var sessNO = document.getElementById("sessNO");
 $.ajax({
     type: "POST",
-    url: "loadTT.php",
+    url: "timetable/loadTT.php",
     contentType: false, // Dont delete this (jQuery 1.6+)
     processData: false, // Dont delete this
     success: function (data) {
@@ -56,9 +56,11 @@ function loadTable(data) {
             tr.innerHTML += `<td >` + item + `</td>`;
             tr.innerHTML += `
         <td >
-            <button type="submit" class="login100-form-btn">
-                Feedback
-            </button>
+            <a>
+                <button type="button" id="feedback" class="login100-form-btn">
+                    Feedback
+                </button>
+            </a>
         </td>`;
 
         timetable.appendChild(tr)
@@ -83,3 +85,29 @@ function loadSess() {
             ($(this).children(":eq(" + "1" + ")").text().toLowerCase().indexOf(sessValue) > -1));
     });
 }
+
+$(document).ready(function () {
+    $("#search-TT").on('click', '#feedback', function () {
+        var $row = $(this).parents('tr');
+        var date = encodeURIComponent($row.find('td:eq(0)').html());
+        var sessNO = encodeURIComponent($row.find('td:eq(1)').html());
+
+        var formData = new FormData();
+        formData.append('date', date);
+        formData.append('sessNO', sessNO);
+
+        $.ajax({
+            type: "POST",
+            url: "feedback.php",
+            data: formData,
+            contentType: false, // Dont delete this (jQuery 1.6+)
+            processData: false, // Dont delete this
+            success: function (data) {
+                if (data) {
+                    window.location.href = 'feedback.php';
+                }
+                else { alert("Not attended") }
+            }
+        });
+    });
+});

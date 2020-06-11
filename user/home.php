@@ -35,13 +35,6 @@ include("session.php");
 					</div>
 					</br>
 					<div class="row-sm-6">
-						<a href = "feedback.php">
-							<button class="login200-form-btn" name="Feedback">
-								Feedback
-							</button>
-					</div>
-					</br>
-					<div class="row-sm-6">
 						<a href = "timetable.php">
 							<button class="login200-form-btn" name="timeTable">
 							Time Table

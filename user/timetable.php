@@ -31,17 +31,17 @@ include("session.php");
 			<div class="row" style="width: 100%">
 				<div class="col-sm-3">
 					<div class="row-sm-6">
-						<button class="login200-form-btn" name="MCQ">
-							MCQ
-						</button>
-					</div>
-					</br>
-					<div class="row-sm-6">
 						<a href="home.php">
 							<button class="login200-form-btn" name="logout">
 								Home
 							</button>
 						</a>
+					</div>
+					</br>
+					<div class="row-sm-6">
+						<button class="login200-form-btn" name="MCQ">
+							MCQ
+						</button>
 					</div>
 					</br>
 					<div class="row-sm-6">
@@ -95,7 +95,7 @@ include("session.php");
 		<!-- <script src="../assests/vendor/bootstrap/js/jquery-3.2.1.min.js"></script> -->
 		<script src="../assests/vendor/bootstrap/js/popper.js"></script>
 		<script src="../assests/vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="loadTT.js"></script>
+		<script src="timetable/loadTT.js"></script>
 		<script src="../assests/js/main.js"></script>
 
 </body>

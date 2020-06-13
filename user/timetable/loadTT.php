@@ -16,4 +16,3 @@ while ($result = mysqli_fetch_array($returnD)) {
 	$return_arr[$date][] = $sessNo;
 }
 echo json_encode($return_arr);
-?>

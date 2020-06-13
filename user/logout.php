@@ -3,4 +3,3 @@
    //session_destroy()
    unset($_SESSION["login_user"]);
    header("Location: login.php");
-?>

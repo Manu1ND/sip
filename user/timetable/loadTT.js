@@ -12,8 +12,8 @@ $.ajax({
             date.options[index] = new Option(key, index);
             index++;
         }
-            // loads table
-            loadTable(data);
+        // loads table
+        loadTable(data);
 
         date.onchange = function () {
             sessNO.length = 1; // remove all options bar first
@@ -55,15 +55,15 @@ function loadTable(data) {
             tr.innerHTML = `<td >` + key + `</td>`;
             tr.innerHTML += `<td >` + item + `</td>`;
             tr.innerHTML += `
-        <td >
-            <a>
-                <button type="button" id="feedback" class="login100-form-btn">
-                    Feedback
-                </button>
-            </a>
-        </td>`;
+            <td >
+                <a>
+                    <button type="button" id="feedback" class="login100-form-btn">
+                        Feedback
+                    </button>
+                </a>
+            </td>`;
 
-        timetable.appendChild(tr)
+            timetable.appendChild(tr)
         })
     }
 }

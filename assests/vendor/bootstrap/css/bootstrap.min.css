@@ -2113,6 +2113,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-primary {
+    position: sticky;
     color: #007bff;
     background-color: #fff;
     border-color: #fff

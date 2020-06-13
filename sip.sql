@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2020 at 08:15 PM
+-- Generation Time: Jun 14, 2020 at 03:11 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -48,7 +48,7 @@ INSERT INTO `adminlogin` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `attendance` (
-  `regno` int(11) NOT NULL,
+  `regno` varchar(50) NOT NULL,
   `sessionID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -61,8 +61,34 @@ CREATE TABLE `attendance` (
 CREATE TABLE `timetable` (
   `sessionID` varchar(50) NOT NULL,
   `no` int(11) NOT NULL,
-  `date` date NOT NULL
+  `date` date NOT NULL,
+  `feedback` longtext NOT NULL,
+  `video` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `timetable`
+--
+
+INSERT INTO `timetable` (`sessionID`, `no`, `date`, `feedback`, `video`) VALUES
+('2020-06-10 - 1', 1, '2020-06-10', 'https://docs.google.com/forms/d/e/1FAIpQLSd1aM-mhKjBSfG8S8pF6MhDFU1kgn0cs6o_pzyhj9mBDK-Nzw/viewform?usp=sf_link', ''),
+('2020-06-10 - 2', 2, '2020-06-10', 'https://docs.google.com/forms/d/e/1FAIpQLScCmf4Xj_3LxyBfoIYDz4RSxi1hOAWZFxilh0vNjd8v3d6clw/viewform?usp=sf_link', ''),
+('2020-06-11 - 1', 1, '2020-06-11', 'https://docs.google.com/forms/d/e/1FAIpQLSc_GN6f8LhuBSb6C9NwWYKfPTSAZY_JpVOuiJ263AC1VWmQvQ/viewform?usp=sf_link', ''),
+('2020-06-11 - 2', 2, '2020-06-11', 'test.com', 'test.com'),
+('2020-06-14 - 1', 1, '2020-06-14', 'abc.com', ''),
+('2020-06-14 - 2', 2, '2020-06-14', 'abc.com', 'abc.com');
+
+--
+-- Triggers `timetable`
+--
+DELIMITER $$
+CREATE TRIGGER `insert_trigger` BEFORE INSERT ON `timetable` FOR EACH ROW SET new.sessionID = CONCAT(new.date, ' - ', new.no)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update_trigger` BEFORE UPDATE ON `timetable` FOR EACH ROW SET new.sessionID = CONCAT(new.date, ' - ', new.no)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -71,7 +97,7 @@ CREATE TABLE `timetable` (
 --
 
 CREATE TABLE `users` (
-  `regno` int(11) NOT NULL,
+  `regno` varchar(50) NOT NULL,
   `DOB` date NOT NULL,
   `Fname` varchar(50) NOT NULL,
   `Lname` varchar(50) NOT NULL,
@@ -83,7 +109,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`regno`, `DOB`, `Fname`, `Lname`, `attendance`) VALUES
-(14482, '2000-10-21', 'Manjunath', 'Naik', 0);
+('14482', '2000-10-21', 'Manjunath', 'Naik', 0);
 
 --
 -- Indexes for dumped tables
@@ -99,8 +125,9 @@ ALTER TABLE `adminlogin`
 -- Indexes for table `attendance`
 --
 ALTER TABLE `attendance`
-  ADD KEY `sessionID` (`sessionID`),
-  ADD KEY `regno` (`regno`);
+  ADD PRIMARY KEY (`regno`,`sessionID`),
+  ADD KEY `regno` (`regno`),
+  ADD KEY `sessionID` (`sessionID`);
 
 --
 -- Indexes for table `timetable`
@@ -132,8 +159,8 @@ ALTER TABLE `adminlogin`
 -- Constraints for table `attendance`
 --
 ALTER TABLE `attendance`
-  ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`sessionID`) REFERENCES `timetable` (`sessionID`),
-  ADD CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`regno`) REFERENCES `users` (`regno`);
+  ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`regno`) REFERENCES `users` (`regno`),
+  ADD CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`sessionID`) REFERENCES `timetable` (`sessionID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

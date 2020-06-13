@@ -2,7 +2,7 @@ var date = document.getElementById("date");
 var sessNO = document.getElementById("sessNO");
 $.ajax({
     type: "POST",
-    url: "loadTT.php",
+    url: "timetable/loadTT.php",
     contentType: false, // Dont delete this (jQuery 1.6+)
     processData: false, // Dont delete this
     success: function (data) {
@@ -12,8 +12,8 @@ $.ajax({
             date.options[index] = new Option(key, index);
             index++;
         }
-            // loads table
-            loadTable(data);
+        // loads table
+        loadTable(data);
 
         date.onchange = function () {
             sessNO.length = 1; // remove all options bar first
@@ -55,13 +55,13 @@ function loadTable(data) {
             tr.innerHTML = `<td >` + key + `</td>`;
             tr.innerHTML += `<td >` + item + `</td>`;
             tr.innerHTML += `
-        <td >
-            <button type="submit" class="login100-form-btn">
-                Start
-            </button>
-        </td>`;
+            <td >
+                <button type="submit" class="login100-form-btn">
+                    Delete
+                </button>
+            </td>`;
 
-        timetable.appendChild(tr)
+            timetable.appendChild(tr)
         })
     }
 }

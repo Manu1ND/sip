@@ -45,25 +45,26 @@ $.ajax({
     //Other options
 });
 
-function loadTable(data1) {
-    window.data = data1;
+function loadTable(data) {
     const timetable = document.getElementById('timetable');
     timetable.innerHTML = ''; //empties TT
     for (var key in data) {
         // loads table
-        for (var item in data[key]) {
+        data[key].forEach(function (item) {
             const tr = document.createElement('tr');
             tr.innerHTML = `<td >` + key + `</td>`;
             tr.innerHTML += `<td >` + item + `</td>`;
             tr.innerHTML += `
             <td >
-                <button id="editButton" class="login100-form-btn" data-toggle="modal" data-target="#editSession">
-                    Edit/Delete
-                </button>
+                <a>
+                    <button type="button" id="feedback" class="login100-form-btn">
+                        Start
+                    </button>
+                </a>
             </td>`;
 
             timetable.appendChild(tr)
-        }
+        })
     }
 }
 
@@ -84,3 +85,29 @@ function loadSess() {
             ($(this).children(":eq(" + "1" + ")").text().toLowerCase().indexOf(sessValue) > -1));
     });
 }
+
+$(document).ready(function () {
+    $("#search-TT").on('click', '#feedback', function () {
+        var $row = $(this).parents('tr');
+        var date = encodeURIComponent($row.find('td:eq(0)').html());
+        var sessNO = encodeURIComponent($row.find('td:eq(1)').html());
+
+        var formData = new FormData();
+        formData.append('date', date);
+        formData.append('sessNO', sessNO);
+
+        $.ajax({
+            type: "POST",
+            url: "feedback.php",
+            data: formData,
+            contentType: false, // Dont delete this (jQuery 1.6+)
+            processData: false, // Dont delete this
+            success: function (data) {
+                if (data) {
+                    window.location.href = 'feedback.php';
+                }
+                else { alert("Not attended") }
+            }
+        });
+    });
+});

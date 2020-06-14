@@ -310,6 +310,11 @@ label {
     border-bottom: 1px solid #b2b2b2;
 }
 
+.wrap-input200 {
+    width: 100%;
+    position: relative;
+}
+
 .label-input100 {
     font-family: Poppins-Regular;
     font-size: 15px;
@@ -319,6 +324,18 @@ label {
     position: absolute;
     top: 14px;
     left: -105px;
+    width: relative;
+}
+
+.label-input200 {
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.2;
+    text-align: right;
+    position: absolute;
+    top: 14px;
+    left: 0px;
     width: 80px;
 }
 

@@ -77,10 +77,12 @@ include("session.php");
       							</div>
       							<div class="modal-body">
 								  <?= $_SESSION['name'] ?>, click the below button for attendance
-      							</div>
-      							<div class="modal-footer">
-        							<button type="button" class="btn btn-primary">Attendance</button>
-      							</div>
+								</div>
+								<div class="modal-footer">
+								<form action="addAttendance.php" method="POST">
+        							<button type="button" name="addAttendanceSubmit" class="btn btn-primary">Attendance</button>
+								</form>  
+								</div>
     						</div>
   						</div>
 					</div>

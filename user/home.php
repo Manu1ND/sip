@@ -80,7 +80,7 @@ include("session.php");
 								</div>
 								<div class="modal-footer">
 								<form action="addAttendance.php" method="POST">
-        							<button type="button" name="addAttendanceSubmit" class="btn btn-primary">Attendance</button>
+        							<button name="addAttendanceSubmit" class="btn btn-primary">Attendance</button>
 								</form>  
 								</div>
     						</div>

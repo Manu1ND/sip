@@ -18,8 +18,9 @@ $regno = $_SESSION['login_user'];
 $sessionID = '2020-06-10 - 1';
 
 if (isset($_POST['addAttendanceSubmit'])) {
-    $sql = "INSERT INTO `attendance` (`regno`, `sessionID`) VALUES ('$regno', '$sessionID')";
-    if (mysqli_query($conn, $sql)) {
+    $sql1 = "INSERT INTO `attendance` (`regno`, `sessionID`) VALUES ('$regno', '$sessionID')";
+    if (mysqli_query($conn, $sql1)) {
+
         echo "<br>" . "Inserted to Database";
         //header("location:home.php");
     } else {

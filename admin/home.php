@@ -58,7 +58,32 @@ include("session.php");
 							<label class="login100-form-title-1">Welcome Admin!</label>
 						</div>
 						<div class="col-sm">
-							<label style="height:500px; text-align:center">Video Here</label>
+							<form class="login100-form validate-form" id="search-TT" method="POST">
+								<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+									<div class="row">
+										<div class="field half">
+											<select size="1" name="date" id="date" />
+											<option value="0">--All--</option>
+											</select>
+										</div>
+										<div class="field half">
+											<select size="1" name="sessNO" id="sessNO" />
+											<option value="0">--All--</option>
+											</select>
+										</div>
+									</div>
+									<table class="table">
+										<thead>
+											<tr>
+												<th scope="col">Date</th>
+												<th scope="col">Session No.</th>
+												<th scope="col">Start</th>
+											</tr>
+										</thead>
+										<tbody id="timetable"></tbody>
+									</table>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -70,6 +95,7 @@ include("session.php");
 	<script src="../assests/vendor/bootstrap/js/jquery-3.2.1.min.js"></script>
 	<script src="../assests/vendor/bootstrap/js/popper.js"></script>
 	<script src="../assests/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="adminHome/loadTT.js"></script>
 	<script src="../assests/js/main.js"></script>
 
 </body>

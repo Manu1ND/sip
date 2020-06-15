@@ -140,13 +140,18 @@ include("session.php");
 			</div>
 		</div>
 
-		<!--===============================================================================================-->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<!-- <script src="../assests/vendor/bootstrap/js/jquery-3.2.1.min.js"></script> -->
-		<script src="../assests/vendor/bootstrap/js/popper.js"></script>
-		<script src="../assests/vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="timetable/loadTT.js"></script>
-		<script src="../assests/js/main.js"></script>
+		<!-- Modal -->
+		<div class="modal fade" id="editSession" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
+	</div>
+
+	<!--===============================================================================================-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- <script src="../assests/vendor/bootstrap/js/jquery-3.2.1.min.js"></script> -->
+	<script src="../assests/vendor/bootstrap/js/popper.js"></script>
+	<script src="../assests/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="timetable/loadTT.js"></script>
+	<script src="timetable/editSession.js"></script>
+	<script src="../assests/js/main.js"></script>
 
 </body>
 

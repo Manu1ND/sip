@@ -23,9 +23,10 @@ $.ajax({
                 // loads table
                 loadTable(data);
             } else {
-                data[date.options[date.selectedIndex].text].forEach(function (item, index) {
-                    sessNO.options[index + 1] = new Option(item, index + 1);
-                })
+                var ind = 0;
+                for (var item in data[date.options[date.selectedIndex].text]) {
+                    sessNO.options[ind + 1] = new Option(item, ind + 1);
+                }
                 // loads table by date filter
                 loadDate();
             }

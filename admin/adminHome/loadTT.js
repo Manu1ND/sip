@@ -23,9 +23,10 @@ $.ajax({
                 // loads table
                 loadTable(data);
             } else {
-                data[date.options[date.selectedIndex].text].forEach(function (item, index) {
-                    sessNO.options[index + 1] = new Option(item, index + 1);
-                })
+                var ind = 0;
+                for (var item in data[date.options[date.selectedIndex].text]) {
+                    sessNO.options[ind + 1] = new Option(item, ind + 1);
+                }
                 // loads table by date filter
                 loadDate();
             }
@@ -68,7 +69,7 @@ function loadTable(data) {
             else {
                 tr.innerHTML += `
                 <td >
-                    <button id="startSess" class="login100-form-btn">
+                    <button type="button" id="startSess" class="login100-form-btn">
                         Start
                     </button>
                 </td>`;
@@ -115,7 +116,7 @@ $(document).ready(function () {
             contentType: false, // Dont delete this (jQuery 1.6+)
             processData: false, // Dont delete this
             success: function (data) {
-                console.log('HI');
+                window.location.reload();
             }
         });
     });

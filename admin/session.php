@@ -1,12 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "sip";
-session_start();
+include("db.php");
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
+session_start();
 
 $user_check = $_SESSION['login_admin'];
 
@@ -17,7 +12,14 @@ $returnD = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($returnD, MYSQLI_ASSOC);
 $login_session = $row['username'];
 
-if (!isset($_SESSION['login_user']) || ($login_session != $user_check)) {
+$sql2 = "SELECT * FROM `timetable` WHERE `timetable`.`currSess`='1'";
+$returnD = mysqli_query($conn, $sql2);
+$row = mysqli_fetch_array($returnD);
+$_SESSION['current_Session'] = $row["sessionID"];
+//$_SESSION['video'] = $row["video"];
+//$_SESSION['current_feedback'] = $row["feedback"];
+
+if (!isset($_SESSION['login_admin']) || ($login_session != $user_check)) {
     header("location:login.php");
     die();
 }

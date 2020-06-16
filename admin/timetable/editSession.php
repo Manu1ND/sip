@@ -1,11 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "sip";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
+include("../session.php");
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());

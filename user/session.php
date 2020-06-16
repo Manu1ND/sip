@@ -1,12 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "sip";
-session_start();
+include("db.php");
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
+session_start();
 
 $user_check = $_SESSION['login_user'];
 
@@ -20,7 +15,7 @@ $returnD = mysqli_query($conn, $sql2);
 $row = mysqli_fetch_array($returnD);
 $_SESSION['current_Session'] = $row["sessionID"];
 $_SESSION['video'] = $row["video"];
-$_SESSION['feedback'] = $row["feedback"];
+$_SESSION['current_feedback'] = $row["feedback"];
 
 if (!isset($_SESSION['login_user']) || ($login_session != $user_check)) {
     header("location:login.php");

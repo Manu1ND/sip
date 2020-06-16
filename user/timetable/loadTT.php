@@ -1,13 +1,5 @@
 <?php
-include("session.php");
-
-//DB CONNECTION====================================
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "sip";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+include("../session.php");
 
 $query = "SELECT * FROM timetable";
 $returnD = mysqli_query($conn, $query);

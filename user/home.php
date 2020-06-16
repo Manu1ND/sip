@@ -59,7 +59,7 @@ include("session.php");
 						</div>
 						<div class="col-sm" style="height:500px; max-width:800px">
 							<label style="font-size:large">Video: <?= $_SESSION['video'] ?></label>
-							<label style="font-size:large">Feedback: <?= $_SESSION['feedback'] ?></label>
+							<label style="font-size:large">Feedback: <?= $_SESSION['current_feedback'] ?></label>
 						</div>
 					</div>
 					<!-- Button trigger modal -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2020 at 11:24 AM
+-- Generation Time: Jun 16, 2020 at 08:58 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -60,7 +60,7 @@ INSERT INTO `attendance` (`regno`, `sessionID`) VALUES
 ('14482', '2020-06-10 - 1'),
 ('14482', '2020-06-10 - 2'),
 ('14482', '2020-06-11 - 1'),
-('14482', '2020-06-14 - 2');
+('14482', '2020-06-11 - 2');
 
 -- --------------------------------------------------------
 
@@ -83,11 +83,10 @@ CREATE TABLE `timetable` (
 
 INSERT INTO `timetable` (`sessionID`, `no`, `date`, `feedback`, `video`, `currSess`) VALUES
 ('2020-06-10 - 1', 1, '2020-06-10', 'https://docs.google.com/forms/d/e/1FAIpQLSd1aM-mhKjBSfG8S8pF6MhDFU1kgn0cs6o_pzyhj9mBDK-Nzw/viewform?usp=sf_link', 'abc.com', 0),
-('2020-06-10 - 2', 2, '2020-06-10', 'https://docs.google.com/forms/d/e/1FAIpQLScCmf4Xj_3LxyBfoIYDz4RSxi1hOAWZFxilh0vNjd8v3d6clw/viewform?usp=sf_link', '', 1),
-('2020-06-11 - 1', 1, '2020-06-11', 'https://docs.google.com/forms/d/e/1FAIpQLSc_GN6f8LhuBSb6C9NwWYKfPTSAZY_JpVOuiJ263AC1VWmQvQ/viewform?usp=sf_link', '', 0),
-('2020-06-11 - 2', 2, '2020-06-11', 'test.com', 'test.com', 0),
-('2020-06-14 - 1', 1, '2020-06-14', 'abc.com', '', 0),
-('2020-06-14 - 2', 2, '2020-06-14', 'abc.com', 'abc.com', 0);
+('2020-06-10 - 2', 2, '2020-06-10', 'https://docs.google.com/forms/d/e/1FAIpQLScCmf4Xj_3LxyBfoIYDz4RSxi1hOAWZFxilh0vNjd8v3d6clw/viewform?usp=sf_link', 'man.com', 0),
+('2020-06-11 - 1', 1, '2020-06-11', 'https://docs.google.com/forms/d/e/1FAIpQLSc_GN6f8LhuBSb6C9NwWYKfPTSAZY_JpVOuiJ263AC1VWmQvQ/viewform?usp=sf_link', 'sample.com', 0),
+('2020-06-11 - 2', 2, '2020-06-11', 'test.com', 'test.com', 1),
+('2020-06-14 - 1', 1, '2020-06-14', '456.com', '', 0);
 
 --
 -- Triggers `timetable`

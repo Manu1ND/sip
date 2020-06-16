@@ -1,6 +1,5 @@
 <?php
 include("session.php");
-echo $_SESSION['current_Session'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

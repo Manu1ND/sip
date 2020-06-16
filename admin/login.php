@@ -1,18 +1,12 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "sip";
-session_start();
+include("db.php");
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-
 
 	$result = mysqli_query($conn, "SELECT * FROM adminlogin WHERE username = '$username'")
 		or die("Failed to query database" . mysqli_error($conn));

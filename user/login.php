@@ -1,13 +1,7 @@
 <?php
+include("db.php");
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "sip";
 session_start();
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

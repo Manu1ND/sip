@@ -1,14 +1,6 @@
 <?php
 include("session.php");
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "sip";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
-
 if (!empty($_POST['date']) || !empty($_POST['sessNO'])) {
     $date = $_POST['date'];
     $sessNO = $_POST['sessNO'];

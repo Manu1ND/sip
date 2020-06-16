@@ -1,15 +1,13 @@
 $(document).ready(function () {
-    $("#search-TT").on('click', '#editButton', function () {
-        var $row = $(this).parents('tr');
-        var date = encodeURIComponent($row.find('td:eq(0)').html());
-        var sessNO = encodeURIComponent($row.find('td:eq(1)').html());
-        const editSession = document.getElementById('editSession');
-        var video = data[date][sessNO]['video'];
-        var feedback = data[date][sessNO]['feedback'];
-        console.log(video);
-        console.log(feedback);
+	$("#search-TT").on('click', '#editButton', function () {
+		var $row = $(this).parents('tr');
+		var date = encodeURIComponent($row.find('td:eq(0)').html());
+		var sessNO = encodeURIComponent($row.find('td:eq(1)').html());
+		const editSession = document.getElementById('editSession');
+		var video = data[date][sessNO]['video'];
+		var feedback = data[date][sessNO]['feedback'];
 
-        var html = `
+		var html = `
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -27,24 +25,24 @@ $(document).ready(function () {
                                 </button>
                             </div>
 							<div class="wrap-input200 validate-input m-b-26">
-                                <h5 class="modal-title">Date: `+date+`</h5>
-                                <input type="hidden" name="newDate" value="`+date+`"/>
+                                <h5 class="modal-title">Date: `+ date + `</h5>
+                                <input type="hidden" name="newDate" value="`+ date + `"/>
 							</div>
 
 							<div class="wrap-input200 validate-input m-b-26">
-                                <h5 class="modal-title">Session No: `+sessNO+`</h5>
+                                <h5 class="modal-title">Session No: `+ sessNO + `</h5>
 							</div>
-                            <input type="hidden" name="newSessNO" value="`+sessNO+`"/>
+                            <input type="hidden" name="newSessNO" value="`+ sessNO + `"/>
 
 							<div class="wrap-input100 validate-input m-b-26" data-validate="Video URL is required">
 								<span class="label-input100">Video</span>
-								<input class="input100" type="url" name="newVideo" id="newVideo" placeholder="`+video+`">
+								<input class="input100" type="url" name="newVideo" id="newVideo" placeholder="`+ video + `">
 								<span class="focus-input100"></span>
 							</div>
 
 							<div class="wrap-input100 validate-input m-b-26" data-validate="Feedback URL is required">
 								<span class="label-input100">Feedback</span>
-								<input class="input100" type="url" name="newFeedback" id="newFeedback" placeholder="`+feedback+`">
+								<input class="input100" type="url" name="newFeedback" id="newFeedback" placeholder="`+ feedback + `">
 								<span class="focus-input100"></span>
 							</div>
 						</form>
@@ -55,7 +53,7 @@ $(document).ready(function () {
 					</div>
 				</div>
             </div>`;
-            
-            editSession.innerHTML = html;
-    });
+
+		editSession.innerHTML = html;
+	});
 });

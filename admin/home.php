@@ -1,5 +1,6 @@
 <?php
 include("session.php");
+echo $_SESSION['current_Session'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,6 +91,10 @@ include("session.php");
 			</div>
 		</div>
 	</div>
+	<script>
+		var sessionID = <?=json_encode($_SESSION['current_Session'])?>;
+		console.log(sessionID);
+	</script>
 
 	<!--===============================================================================================-->
 	<script src="../assests/vendor/bootstrap/js/jquery-3.2.1.min.js"></script>

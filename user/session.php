@@ -1,28 +1,28 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "sip";
-    session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "sip";
+session_start();
 
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password,$db);
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $db);
 
-    $user_check = $_SESSION['login_user'];
+$user_check = $_SESSION['login_user'];
 
-    $sql = "SELECT `regno` FROM `users` WHERE `regno` = '$user_check' ";
+$sql1 = "SELECT `regno` FROM `users` WHERE `regno` = '$user_check' ";
+$returnD = mysqli_query($conn, $sql1);
+$row = mysqli_fetch_array($returnD, MYSQLI_ASSOC);
+$login_session = $row['regno'];
 
-    $returnD = mysqli_query($conn, $sql);
+$sql2 = "SELECT * FROM `timetable` WHERE `timetable`.`currSess`='1'";
+$returnD = mysqli_query($conn, $sql2);
+$row = mysqli_fetch_array($returnD);
+$_SESSION['current_Session'] = $row["sessionID"];
+$_SESSION['video'] = $row["video"];
+$_SESSION['feedback'] = $row["feedback"];
 
-    $row = mysqli_fetch_array($returnD,MYSQLI_ASSOC);
-    $login_session = $row['regno'];
-
-    if(!isset($_SESSION['login_user'])){
-        header("location:login.php");
-        die();
-    } else {
-        if($login_session != $user_check){
-            header("location:login.php");
-            die();
-        }
-    }
+if (!isset($_SESSION['login_user']) || ($login_session != $user_check)) {
+    header("location:login.php");
+    die();
+}

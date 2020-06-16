@@ -13,9 +13,7 @@ $returnD = mysqli_query($conn, $query);
 while ($result = mysqli_fetch_array($returnD)) {
 	$date = $result["date"];
 	$sessNo = $result["no"];
-	$feedback = $result["feedback"];
-	$video = $result["video"];
-	$return_arr[$date][$sessNo]['feedback'] = $feedback;
-	$return_arr[$date][$sessNo]['video'] = $video;
+	$return_arr[$date][$sessNo]['feedback'] = $result["feedback"];
+	$return_arr[$date][$sessNo]['video'] = $result["video"];
 }
 echo json_encode($return_arr);

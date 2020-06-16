@@ -2,7 +2,7 @@ var date = document.getElementById("date");
 var sessNO = document.getElementById("sessNO");
 $.ajax({
     type: "POST",
-    url: "timetable/loadTT.php",
+    url: "adminHome/loadTT.php",
     contentType: false, // Dont delete this (jQuery 1.6+)
     processData: false, // Dont delete this
     success: function (data) {
@@ -50,21 +50,32 @@ function loadTable(data) {
     timetable.innerHTML = ''; //empties TT
     for (var key in data) {
         // loads table
-        data[key].forEach(function (item) {
+        for (var item in data[key]) {
             const tr = document.createElement('tr');
             tr.innerHTML = `<td >` + key + `</td>`;
             tr.innerHTML += `<td >` + item + `</td>`;
-            tr.innerHTML += `
-            <td >
-                <a>
-                    <button type="button" id="feedback" class="login100-form-btn">
+
+            if (data[key][item]['sessionID'] == sessionID) {
+                console.log(sessionID);
+                console.log(data[key][item]['sessionID']);
+                tr.innerHTML += `
+                <td >
+                    <button id="startSess" class="login100-form-btn" disabled>
+                        Running
+                    </button>
+                </td>`;
+            }
+            else {
+                tr.innerHTML += `
+                <td >
+                    <button id="startSess" class="login100-form-btn">
                         Start
                     </button>
-                </a>
-            </td>`;
+                </td>`;
+            }
 
             timetable.appendChild(tr)
-        })
+        }
     }
 }
 
@@ -87,10 +98,11 @@ function loadSess() {
 }
 
 $(document).ready(function () {
-    $("#search-TT").on('click', '#feedback', function () {
+    $("#search-TT").on('click', '#startSess', function () {
         var $row = $(this).parents('tr');
         var date = encodeURIComponent($row.find('td:eq(0)').html());
         var sessNO = encodeURIComponent($row.find('td:eq(1)').html());
+        console.log(date, sessNO);
 
         var formData = new FormData();
         formData.append('date', date);
@@ -98,15 +110,12 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "feedback.php",
+            url: "adminHome/currSession.php",
             data: formData,
             contentType: false, // Dont delete this (jQuery 1.6+)
             processData: false, // Dont delete this
             success: function (data) {
-                if (data) {
-                    window.location.href = 'feedback.php';
-                }
-                else { alert("Not attended") }
+                console.log('HI');
             }
         });
     });

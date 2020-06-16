@@ -57,34 +57,35 @@ include("session.php");
 						<div class="login100-form-title">
 							<label class="login100-form-title-1">Welcome <?= $_SESSION['name'] ?>!</label>
 						</div>
-						<div class="col-sm">
-							<label style="height:500px; text-align:center">Video Here</label>
+						<div class="col-sm" style="height:500px; max-width:800px">
+							<label style="font-size:large">Video: <?= $_SESSION['video'] ?></label>
+							<label style="font-size:large">Feedback: <?= $_SESSION['feedback'] ?></label>
 						</div>
 					</div>
 					<!-- Button trigger modal -->
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-  					For Attendance click here
+						For Attendance click here
 					</button>
 					<!-- Modal -->
 					<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  						<div class="modal-dialog">
-    						<div class="modal-content">
-      							<div class="modal-header">
-        							<h5 class="modal-title" id="staticBackdropLabel">Attendance</h5>
-        							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          							<span aria-hidden="true">&times;</span>
-        							</button>
-      							</div>
-      							<div class="modal-body">
-								  <?= $_SESSION['name'] ?>, click the below button for attendance
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="staticBackdropLabel">Attendance</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<?= $_SESSION['name'] ?>, click the below button for attendance
 								</div>
 								<div class="modal-footer">
-								<form action="addAttendance.php" method="POST">
-        							<button name="addAttendanceSubmit" class="btn btn-primary">Attendance</button>
-								</form>  
+									<form action="addAttendance.php" method="POST">
+										<button name="addAttendanceSubmit" class="btn btn-primary">Attendance</button>
+									</form>
 								</div>
-    						</div>
-  						</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
